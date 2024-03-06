@@ -1,0 +1,36 @@
+<div class="calendar-container">
+    <div class="row m-2">
+        <div class="col">
+            <h1>{{ months[currDate.getMonth()] + ' ' + currDate.getFullYear() }}</h1>
+        </div>
+        <div class="col">
+            <div class="float-end">
+                <button class="btn btn-primary calendar-button" ng-click="prevPressed()">&lt;</button>
+                <button class="btn btn-primary calendar-button" ng-click="nextPressed()">&gt;</button>
+            </div>
+        </div>
+    </div>
+    <div class="row m-2">
+        <ul class="calendar-wrapper">
+            <li ng-repeat="week in weeks" class="week">
+                    {{ week }}
+            </li>
+            <li 
+                ng-repeat="prevdate in prevMonthDates" 
+                class="date not-this-month" 
+            >
+                    {{ prevdate }}
+            </li>
+            <li 
+                ng-repeat="date in currMonthDates" 
+                class="date this-month" 
+                ng-click="datePressed(date)"
+            >
+                    {{ date }}
+            </li>
+            <li ng-repeat="nextdate in nextMonthDates" class="date not-this-month">
+                    {{ nextdate }}
+            </li>
+        </ul>
+    </div>
+</div>

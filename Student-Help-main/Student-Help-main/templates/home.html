@@ -1,0 +1,114 @@
+<div class="home-container">
+    <div class="row">
+        <div class ="slider col-7 ">
+        <div class ="slides">
+            <input type="radio" name ="radio-btn" id="radio1" checked>
+            <input type="radio" name ="radio-btn" id="radio2">
+            <input type="radio" name ="radio-btn" id="radio3">
+            <input type="radio" name ="radio-btn" id="radio4">
+            <input type="radio" name ="radio-btn" id="radio5">
+            <div class ="slide first">
+                <a href ="#!/calendar"><img src ="./assets/calendar.png" alt="library" width="350"></a>
+            </div>
+            <div class ="slide">
+                <a href ="#"><img src ="./assets/books.jfif" alt ="books" width="320"></a>
+            </div>
+            <div class ="slide">
+                <a href ="#!/timetable"><img src ="./assets/timetable_2.jpg" alt ="books" width="350"></a>
+            </div>
+            <div class ="slide">
+                <a href ="#!/events"><img src ="./assets/library.jpg" alt ="books" width="350"></a>
+            </div>
+            <div class ="slide">
+                <a href ="#about-us"><img src ="./assets/about_us.jpg" alt ="books" width="350"></a>
+            </div>
+            <div class ="navigation-auto">
+                <div class ="auto-btn1"></div>
+                <div class ="auto-btn2"></div>
+                <div class ="auto-btn3"></div>
+                <div class ="auto-btn4"></div>
+                <div class ="auto-btn5"></div>
+            </div>
+        </div>
+        <div class ="navigation-manual">
+            <label for="radio1" class ="manual-btn"></label>
+            <label for="radio2" class ="manual-btn"></label>
+            <label for="radio3" class ="manual-btn"></label>
+            <label for="radio4" class ="manual-btn"></label>
+            <label for="radio5" class ="manual-btn"></label>
+        </div>
+    </div>
+    <div class="ml-2 wrapper col-5" ng-show="!isLoggedIn">
+        <div class="title-text">
+           <div class="title login">
+              Welcome Back!!!
+           </div>
+           <div class="title signup">
+              Signup Form
+           </div>
+        </div>
+        <div class="form-container">
+           <div class="slide-controls">
+              <input type="radio" class="radio-slide-input" name="slide" id="login" checked ng-model="mode" value="login">
+              <input type="radio" class="radio-slide-input" name="slide" id="signup" ng-model="mode" value="signup">
+              <label for="login" class="slide login">Login</label>
+              <label for="signup" class="slide signup">Signup</label>
+              <div class="slider-tab"></div>
+           </div>
+           <div class="form-inner">
+              <form class="login" novalidate ng-submit="onSubmit()" name="loginForm">
+                 <div class="field">
+                    <input type="email" placeholder="Email Address" required ng-model="email">
+                 </div>
+                 <div class="field">
+                    <input type="password" placeholder="Password" required ng-pattern="/^[\w@\/]{8,16}$/" ng-model="password">
+                 </div>
+                 <div class="pass-link">
+                    <a href="#">Forgot password?</a>
+                 </div>
+                 <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Login">
+                 </div>
+                 <div class="signup-link">
+                    Not a member? <a href="">Signup now</a>
+                 </div>
+                 <div ng-bind="error" class="text-danger" ng-if="error"></div>
+              </form>
+           </div>  
+        </div>
+    </div>
+    <div class="ml-2 wrapper col-5" ng-show="isLoggedIn">
+        <dt>User Email</dt>
+        <dd>{{ user.email }}</dd>
+        <button class="btn btn-primary" ng-click="onLogout()">Logout</button>
+    </div>
+</div>
+<div>
+    <section class="m-about-us">
+        <a name="about-us"></a>
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget ipsum ac tellus sollicitudin aliquam. Mauris id velit id ipsum aliquam congue. Sed bibendum quam ut massa malesuada, nec blandit massa imperdiet. Sed ultricies ullamcorper libero, id tempor purus laoreet nec. Phasellus tristique, elit sit amet vulputate iaculis, nisl velit commodo velit, vel venenatis nisl arcu eu sapien. Donec a lectus quis enim gravida tempor vel nec arcu.</p>
+    </section>
+    <footer>
+        <ul>
+            <li>Address: 123 Main St, Anytown USA</li>
+            <li>Phone: 555-1234</li>
+            <li>Email: info@myhomepage.com</li>
+        </ul>
+    </footer>
+</div>
+<script>
+    var counter = 2;
+    setInterval(function(){
+        const el = document.getElementById('radio'+ counter)
+        if(!el) 
+            return;
+        el.checked = true;
+        counter++;
+        if(counter>5)
+        {
+            counter = 1;
+        }
+    }, 5000);
+</script>

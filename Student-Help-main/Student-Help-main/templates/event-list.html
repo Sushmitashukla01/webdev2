@@ -1,0 +1,28 @@
+<div class="list-container accordion" id="accordian-list">
+    <div class = "accordion-item" ng-repeat="event in events">
+        <h2 class = "accordion-header" id="collapser{{ $index }}">
+            <button 
+                class="accordion-button collapsed tit" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#collapseThis{{ $index }}"
+                aria-controls="collapseThis{{ $index }}"
+            >
+                <span class="float-start">{{ event.title }}</span>
+                <span class="accord-date position-absolute pos">{{ event.due | date : "medium"}}</span>
+            </button>
+        </h2>
+        <div id="collapseThis{{ $index }}" class="accordion-collapse collapse">
+            <div class="accordion-body" data-bs-parent="#accordian-list" aria-labelledby="collapser{{ $index }}">
+                <dl>
+                    <dt>Description</dt>
+                    <dd>{{ event.description }}</dd>
+                    <dt>Semester</dt>
+                    <dd>{{ event.semester.name }}</dd>
+                    <dt>Subject</dt>
+                    <dd>{{ event.subject.name }}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="#!/add/event" class="btn btn-warning adde">Add event</a>

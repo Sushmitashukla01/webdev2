@@ -1,0 +1,29 @@
+{
+  "name": "student-help",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-client": "http-server -c-1 -p 4200",
+    "start-backend": "nodemon backend/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.8.3",
+    "angular-route": "^1.8.3",
+    "angular-routing": "^0.3.1",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.2.3",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "http-server": "^14.1.1",
+    "jquery": "^3.6.4",
+    "mongoose": "^7.0.3",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

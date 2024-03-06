@@ -1,0 +1,67 @@
+<div class="form-container d-flex flex-column justify-content-center align-items-center">
+    <h2 id="s-heading">Enter Slot and Subject Details</h2>
+    <form name="eventsForm" ng-submit="onEventSubmit()" class="s-form d-flex justify-content-center flex-column py-3 px-5">
+        <div class="form-group">
+            <label for="etitle">Title <sup>*</sup></label>
+            <input 
+                type="text"
+                required
+                ng-pattern="/^[\w\s]+$/"
+                ng-model="etitle"
+                name="etitle"
+                id="etitle"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="edetail">Description<sup>*</sup></label>
+            <textarea
+                name="edetail"
+                id="edetail"
+                ng-model="edetail"
+                required
+                ng-pattern="/^[\w\s]+$/"
+                class="form-control"
+            ></textarea>
+        </div>
+        <div class="form-group">
+            <label for="semester">Select Semester:</label>
+            <select
+              name="semester"
+              ng-model="semester"
+              ng-options="s.name for s in semesters"
+              required
+              class="form-control"
+            >
+            <option value="">Select</option>
+            </select>
+            <div ng-show="myForm.semester.$error.required && myForm.semester.$touched" class="error">
+                Semester is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <select
+                name="subject"
+                ng-model="subject"
+                ng-options="sub.name for sub in subjects[semester.id]"
+                ng-disabled="!semester"
+                required
+                class="form-control"
+            >
+                <option value="">Select</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="due">Event Timing</label>
+            <input
+                type="datetime-local"
+                ng-model="due"
+                name="due"
+                id="due"
+                required
+            >
+        </div>
+        <button type="submit" class="form-submit w-25" ng-class="{ 'ng-invalid': myForm.$invalid, 'ng-valid': myForm.$valid }">Submit</button>
+    </form>
+</div>
